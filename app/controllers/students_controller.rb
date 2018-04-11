@@ -66,16 +66,3 @@ class StudentsController < ApplicationController
         end
 
 end
-
-
-# get "dojos/:dojo_id/student" => "students#index"
-# get "dojos/:dojo_id/students/new" => "students#new", as: "addStudent"
-# post "dojos/:dojo_id/students" => "students#create"
-# get "dojos/:dojo_id/students/:id" => "students#show", as: "showStudent"
-# get "dojos/:dojo_id/students/:id/edit" => "students#edit", as: "editStudent"
-# patch "dojos/:dojo_id/students/:id" => "students#update"
-# delete "dojos/:dojo_id/students/:id" => "students#destroy"
-
-
-# <%= link_to "Add Student", addStudent_path(@dojo['id'])%>
-# <%=link_to "show", showStudent_path( student.id )%>

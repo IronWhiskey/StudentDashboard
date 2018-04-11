@@ -1,0 +1,22 @@
+/*CSS reset settings here*/
+*{
+margin: 0px;
+padding: 0px;
+}
+
+#wrapper{
+    width: 970px;
+    margin: 0px auto;
+}
+
+#wrapper h1{
+    margin: 20px auto;
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+table{
+    margin-bottom: 10px;
+}

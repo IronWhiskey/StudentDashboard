@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "main.css" %>
+
+<div id="wrapper">
+    <h1>Listing <%=@dojos.count%> Dojos</h1>
+    <% if @dojos %>
+        <table>
+            <tr>
+                <th>Coding Dojo Branch</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Actions</th>
+            </tr>
+
+            <% @dojos.each do |dojo| %>
+                <tr>
+                    <td><%=dojo.branch%></td>
+                    <td><%=dojo.street%></td>
+                    <td><%=dojo.city%></td>
+                    <td><%=dojo.state%></td>
+                    <td> <a href="dojos/<%=dojo.id%>">show</a> | <a href="dojos/<%=dojo.id%>/edit">edit</a> | <a href="dojos/<%=dojo.id%>" data-method="delete">Delete</a> </td>
+                </tr>
+            <% end %>    
+        </table>
+
+    <% end %>
+    <%= link_to "New Dojo", showDojoForm_path %> 
+</div>

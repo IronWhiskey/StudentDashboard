@@ -1,0 +1,44 @@
+
+<% if @dojo %>
+        <h1><%=@dojo.branch%></h1>
+        <%= link_to "Edit", editDojo_path( @dojo.id ) %>
+    <table>
+        <tr>
+            <td>Street:</td>
+            <td><%=@dojo.street%></td> 
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td><%=@dojo.city%></td> 
+        </tr>
+        <tr>
+            <td>State:</td>
+            <td><%=@dojo.state%></td> 
+        </tr>
+    </table>
+<% end %>
+
+
+<h1>Student Roster</h1>
+<% if @students %>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+
+        <% @students.each do |student| %>
+            <tr>
+                <td><%=student.first_name%></td>
+                <td><%=student.last_name_%></td>
+                <td><%=student.email%></td>
+                <td>  <a href="<%=@dojo.id%>/students/<%= student.id %>">show</a> | <a href="<%=@dojo.id%>/students/<%=student.id%>/edit">edit</a> |  <a href="<%=@dojo.id%>/students/<%=student.id %>" data-method="delete">Delete</a> </td>
+            </tr>
+        <% end %>    
+    </table>
+
+<% end %>
+
+<p><%= link_to "Home", root_path %> | <a href="/dojos/<%=@dojo['id']%>/students/new">Add Student</a> </p>

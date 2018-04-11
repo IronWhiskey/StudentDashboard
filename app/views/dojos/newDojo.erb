@@ -1,0 +1,31 @@
+
+<h1>New Dojo</h1>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<form action="/create" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    
+    <table>
+        <tr>
+            <td>Branch:</th>
+            <td><input type="text" name="dojo[branch]"/></th> 
+        </tr>
+        <tr>
+            <td>Street:</th>
+            <td><input type="text" name="dojo[street]"/></th> 
+        </tr>
+        <tr>
+            <td>City:</th>
+            <td><input type="text" name="dojo[city]"/></th> 
+        </tr>
+        <tr>
+            <td>State:</th>
+            <td><input type="text" name="dojo[state]"/></th> 
+        </tr>
+    </table>
+    <input type='submit' value='Create'>    
+</form>
+<%= link_to "Home", root_path %>

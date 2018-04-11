@@ -1,0 +1,42 @@
+
+<h1>Editing <%=@student.first_name%> <%=@student.last_name_%> </h1>
+
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<form action="/dojos/<%dojo/['id']%>/students/<%=@student['id']%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    
+    <table>
+        <tr>
+            <td>First Name:</th>
+            <td><input type="text" name="student[first_name]" value="<%=@student.first_name%>"/></th> 
+        </tr>
+        <tr>
+            <td>Last Name:</th>
+            <td><input type="text" name="student[last_name_]" value="<%=@student.last_name_%>"/></th> 
+        </tr>
+        <tr>
+            <td>Email Address:</th>
+            <td><input type="text" name="student[email]" value="<%=@student.email%>"/></th> 
+        </tr>
+        <tr>
+            <td>Dojo:</th>
+            <td>
+                <select>
+                    <% @all_dojos.each do |d| %>
+                        <% if d.city == @dojo.city %>
+                            <option selected><%=d.city%><option>
+                        <% else %>
+                            <option><%=d.city%></option>
+                        <% end %>
+                    <% end %> 
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type='submit' value='Update'>    
+</form>
+<p><%= link_to "Home", root_path %> | <%= link_to @student[:first_name], showStudent_path(@dojo.id, @student.id) %> </p>

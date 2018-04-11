@@ -1,0 +1,24 @@
+
+<h1><%=@dojo.branch%> <%=@student.first_name%> <%=@student.last_name_%></h1>
+<p><%=@student.email%></p>
+
+<p>Cohort</p>
+<% if @dojo %>
+    <table>
+        <tr>
+            <th>First Name:</th>
+            <th>Last Name:</th>
+            <th>Email:</th>
+        </tr>
+
+        <% @studentsInCohert.each do |student| %>
+            <tr>
+                <td><%=student.first_name%></td>
+                <td><%=student.last_name_%></td>
+                <td><%=student.email%></td>
+            </tr>
+        <% end %> 
+    </table>
+<% end %>
+
+<p><%= link_to "Home", root_path %> | <%= link_to "Edit", editStudent_path(@dojo['id'], @student.id) %>  </p>

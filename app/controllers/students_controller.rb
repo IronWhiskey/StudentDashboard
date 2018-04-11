@@ -43,13 +43,23 @@ class StudentsController < ApplicationController
         end
     end
 
+    def update
+        @s = Student.find( params[:id] )
+        @s.update( makeStudent )
+        if @s.errors.full_messages.length > 0
+            flash[:notice] = @s.errors.full_messages            
+            redirect_to :back
+        else
+            redirect_to showDojo_path
+        end
+    end
+
     def destroy
         d = Student.find( params[:id] )
         d.destroy
         redirect_to showDojo_path
     end
 
-    # create/<%=@dojo['id']%>
     private
         def makeStudent
             params.require(:student).permit(:first_name, :last_name_, :email, :dojo_id)

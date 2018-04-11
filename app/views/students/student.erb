@@ -21,4 +21,4 @@
     </table>
 <% end %>
 
-<p><%= link_to "Home", root_path %> | <%= link_to "Edit", editStudent_path(@dojo['id'], @student.id) %>  </p>
+<p><%= link_to "Home", root_path %> | <a href="<%=@student.id%>/edit">edit</a> </p>

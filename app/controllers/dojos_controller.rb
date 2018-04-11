@@ -11,7 +11,6 @@ class DojosController < ApplicationController
 
     def create
         @dojo = Dojo.create( makeDojo )
-        # p "@dojo.errors is : #{@dojo.errors.full_messages}"
         if @dojo.errors.full_messages.length > 0
             flash[:notice] = @dojo.errors.full_messages            
             redirect_to showDojoForm_path
@@ -49,15 +48,10 @@ class DojosController < ApplicationController
         d.destroy
         redirect_to root_path
     end
-    # <%=link_to "destroy", destroyDojo_path(dojo.id)%>
 
 
     private
         def makeDojo
             params.require(:dojo).permit(:branch, :street, :city, :state)
         end
-
-        # <td><%=link_to "show", showDojo_path(dojo.id)%> | <%= link_to "Edit", editDojo_path(dojo.id) %> |  <a href="dojos/<%= dojo.id %>" data-method="delete">Delete</a> </td>
-
-
 end

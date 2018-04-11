@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "students/:id/edit" => "students#edit", as: "editStudent"
   patch "students/:id" => "students#update"
   delete "students/:id" => "students#destroy"
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

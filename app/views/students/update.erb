@@ -5,7 +5,7 @@
     <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<form action="/dojos/<%dojo/['id']%>/students/<%=@student['id']%>" method="post">
+<form action="/dojos/<%=@dojo['id']%>/students/<%=@student['id']%>" method="post">
     <input type="hidden" name="_method" value="patch">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     
@@ -25,7 +25,7 @@
         <tr>
             <td>Dojo:</th>
             <td>
-                <select>
+                <select name="dojo[id]">
                     <% @all_dojos.each do |d| %>
                         <% if d.city == @dojo.city %>
                             <option selected><%=d.city%><option>
@@ -39,4 +39,4 @@
     </table>
     <input type='submit' value='Update'>    
 </form>
-<p><%= link_to "Home", root_path %> | <%= link_to @student[:first_name], showStudent_path(@dojo.id, @student.id) %> </p>
+<p><%= link_to "Home", root_path %> | <a href="/dojos/<%=@dojo.id%>/students/<%=@student.id%>"><%=@student.first_name%></a> </p>
